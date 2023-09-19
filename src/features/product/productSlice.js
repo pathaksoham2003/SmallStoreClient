@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const host = import.meta.env.VITE_SERVER_URL;
 export const getAllProducts = createAsyncThunk("AllProduct/get",async()=>{
-  const response  = await fetch(`${host}/product/all`)
+  const response  = await fetch(`${host}product/all`)
   const data = await response.json();
   return data;
 })
 export const createProduct = createAsyncThunk("AllProduct/create",async(productData)=>{
-  const response = await fetch(`${host}/product/create`,{
+  const response = await fetch(`${host}product/create`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -18,7 +18,7 @@ export const createProduct = createAsyncThunk("AllProduct/create",async(productD
   return data;
 })
 export const updateProduct = createAsyncThunk("AllPoroduct/update",async(productData)=>{
-  const response = await fetch(`${host}/product/update/${productData._id}`,{
+  const response = await fetch(`${host}product/update/${productData._id}`,{
     method:"PATCH",
     headers:{
       "Content-Type":"application/json"
@@ -30,7 +30,7 @@ export const updateProduct = createAsyncThunk("AllPoroduct/update",async(product
 })
 
 export const deleteProduct = createAsyncThunk("AllProduct/delete",async(id)=>{
-  const response = await fetch(`${host}/product/delete/${id}`,{
+  const response = await fetch(`${host}product/delete/${id}`,{
     method:"DELETE",
     headers:{
       "Content-Type":"application/json"
